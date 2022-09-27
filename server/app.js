@@ -42,6 +42,16 @@ app.post('/api/logout', async (request, res) => {
 const sql = require('./sql.js');
 
 app.post('/api/:alias', async (reqest, res) => {
+  try {
+    res.send(await req.db(reqest.params.alias));
+  } catch (err) {
+    res.status(500).send({
+      error: err,
+    });
+  }
+});
+
+app.post('/apirole/:alias', async (reqest, res) => {
   if (!reqest.session.email) {
     return res.status(401).send({ error: 'You need to login' });
   }
