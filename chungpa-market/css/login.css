@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'PyeongChangPeace-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url(NanumFont_TTF_ALL/NanumGothic.ttf) format('truetype');
+}
+
+body {
+    width: 635px;
+    margin: 0 auto;
+    font-weight: 300;
+    font-size: 16px;
+    font-family: 'NanumGothic';
+}
+
+h1 a {
+    display: flex;
+    margin: 134px;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    font-family: 'PyeongChangPeace-Light';
+    text-decoration-line: none;
+    font-weight: 1000;
+    font-size: 60px;
+    color: #0035D3;
+}
+
+.id-field input, .password-field input{
+    border: 0.5px solid #001F7B;
+}
+
+.login-container div:not(.checkbox){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 64px 0 0 0;
+}
+
+.login-container .id-field input, .password-field input{
+    box-sizing: border-box;
+    width: 635px;
+    height: 54px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+}
+
+.login-container .checkbox{
+    width: 250px;
+    margin: 10px 0 0 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    display: none;
+}
+
+input[type=checkbox]+label {
+    cursor: pointer;
+    padding-left: 23px;
+    background-repeat: no-repeat;
+    background-image: url('../image/check_off.png');
+    color: #B5B5B5;
+}
+
+input[type=checkbox]:checked+label {
+    background-image: url('../image/check_on.png');
+    font-weight: 600;
+    color: black;
+}
+
+input[type=checkbox]:disabled+label {
+    background-image: url('../image/check_off.png');
+    color: #B5B5B5;
+}
+
+.login-container .btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 90px 0 90px 0;
+}
+
+button{
+    display: block;
+    align-items: center;
+    box-sizing: border-box;
+    width: 635px;
+    height: 54px;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+    background: #0035D3;
+    border: 2px solid #0035D3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+}
+
+.line{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.line #line1{
+    width: 635px;
+    height: 0px;
+}
+
+.option-list ul{
+    list-style: none;
+    display: flex;
+    margin-left: -30px;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+
+.option-list a{
+    text-decoration-line: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.option-list a:hover {
+    color: #0035d3;
+}
+
+#line2, #line3{
+    width: 0px;
+    height: 22px;
+    border-left: 1px thick solid rgba(0, 0, 0, 0.3);
+}

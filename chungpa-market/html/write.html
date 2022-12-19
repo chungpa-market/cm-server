@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/write.css" />
+    <title>글 작성 페이지</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>
+        <a href=""
+          ><img
+            src="../res/로고3 2.png"
+            width="55"
+            height="51"
+            alt="로고이미지"
+          />청파마켓</a
+        >
+      </h1>
+      <div class="search-box">
+        <input type="text" />
+        <a href="" class="icon">
+          <img
+            src="../res/Search_Magnifying_Glass.png"
+            width="20"
+            height="20"
+            alt="검색 버튼 아이콘"
+          />
+        </a>
+      </div>
+      <div class="login">
+        <a href="">
+          <img
+            src="../res/Chat_Circle.png"
+            height="33px"
+            alt="채팅 아이콘"
+          />
+        </a>
+        <a href="">
+          <img
+            src="../res/User_03.png"
+            width="51px"
+            height="47px"
+            alt="내 정보 아이콘"
+          />
+        </a>
+        <a href="" id="login">로그인</a>
+        <a href="" id="join">회원가입</a>
+      </div>
+    </header>
+    <div>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a class="category-container" href="">
+              <div class="category-vector">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              카테고리
+            </a>
+            <ul class="category">
+              <li>
+                <a href="">도서</a>
+                <ul class="submenu">
+                  <li><a href="#">Service One</a></li>
+                  <li><a href="#">Service Two</a></li>
+                  <li><a href="#">Service Three</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">도서</a>
+                <ul class="submenu">
+                  <li><a href="#">Service One</a></li>
+                  <li><a href="#">Service Two</a></li>
+                  <li><a href="#">Service Three</a></li>
+                </ul>
+              </li>
+              <li><a href="">도서</a></li>
+              <li><a href="">도서</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="">팔아요</a>
+          </li>
+          <li>
+            <a href="">살래요</a>
+          </li>
+          <li>
+            <a href="">나눠요</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="line" id="line1"></div>
+    </div>
+    <main>
+      <form action="">        
+        <div class="info-container">
+              <ul class="type-container">
+                <li>
+                  <input type="radio" name="type" id="sell"
+                  checked="checked">
+                  <label for="sell">팔아요</label>
+                </li>
+                <li>
+                  <input type="radio" name="type" id="buy">
+                  <label for="buy">살래요</label>
+                </li>
+                <li>
+                  <input type="radio" name="type" id="share">
+                  <label for="share">나눠요</label>
+                </li>
+              </ul> 
+              <div class="title">
+                  <label for="title">제목</label>
+                  <input type="text" name="title" id="title">
+              </div>
+
+              <div class="name">
+                  <label for="name">상품명</label>
+                  <input type="text" name="name" id="name">
+              </div>
+
+              <div class="category-box">
+                  <select  name="category" id="category">
+                      <option value="카테고리">카테고리</option>
+                  </select>
+                  <input type="text" name="price" id="price"
+                  placeholder="   희망 가격(선택 사항)">
+              
+                  <div class="checkbox">
+                      <input type="checkbox" name="checkbox" id="checkbox">
+                      <label for="checkbox" style="padding-left: 30px; padding-top: 3px;">가격 제안 받기</label>
+                  </div>
+              </div>
+
+              <div class="line" id="line2"></div>
+
+              <div class="description">
+                  <label for="description">상품 설명</label>
+                  <input type="text" name="description" id="description">
+              </div>
+
+              <div class="line" id="line3"></div>
+
+              <div class="image">
+                  <label for="image">상품 이미지</label>
+                  <img src="../res/ 24.png" alt="">
+                  <input type="file" 
+                  required name="image" id="image">
+              </div>
+
+              <div class="line" id="line4"></div>
+
+              <div class="transaction-way">
+                  <div id="transaction-way" style="margin-left: 0px">희망 거래 방식</div> 
+                  <div class="direct">
+                      <input type="checkbox" id="direct">
+                      <label for="direct" style="padding-left: 30px; padding-top: 3px;">직거래</label>
+                  </div>
+
+                  <div class="deliver">
+                      <input type="checkbox" id="deliver">
+                      <label for="deliver" style="padding-left: 30px; padding-top: 3px;">택배 거래</label>
+                  </div>
+
+                  <div class="locker">
+                      <input type="checkbox" id="locker">
+                      <label for="locker" style="padding-left: 30px; padding-top: 3px;">사물함 거래</label>
+                  </div>
+              </div>
+              
+              <div class="line" id="line5"></div>
+
+              <div class="transaction-area">
+                  <label for="area">거래 가능 지역</label>
+                  <select name="area" id="area">
+                      <option value="지역 선택">지역 선택</option>
+                  </select>
+              </div>
+
+              <div class="hashtag">
+                  <label for="hashtag">연관태그</label>
+                  <input type="text" name="hashtag" id="hashtag">
+              </div>
+
+              <div class="btn-container">
+                  <button type="submit">등록</button>
+              </div>
+        </div>
+      </form>
+    </main>
+</body>
+</html>

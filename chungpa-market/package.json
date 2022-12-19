@@ -1,14 +1,22 @@
 {
-  "name": "chungpa-market",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nunjucks": "^3.2.3",
+    "vue": "^3.2.45"
+  },
+  "name": "cp-market",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "\"chung-pa market\"",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.2.1"
-  }
+  "license": "ISC"
 }

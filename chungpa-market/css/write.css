@@ -1,0 +1,359 @@
+@font-face {
+    font-family: 'PyeongChangPeace-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url(NanumFont_TTF_ALL/NanumGothic.ttf) format('truetype');
+}
+
+a {
+    text-decoration-line: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+body {
+    width: 1120px;
+    margin: 0 auto;
+    font-weight: 100;
+    font-size: 13px;
+    font-family: "NanumGothic";
+}
+
+button {
+    cursor: pointer;
+}
+
+.line {
+    border-bottom: 0.5px solid;
+    border-color: black;
+    border-color: #c2c2c2;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-family: 'PyeongChangPeace-Light';
+    font-weight: 1000;
+    font-size: 36px;
+}
+
+.header h1 a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0035d3;
+}
+
+.header h1 a img {
+    padding-right: 10px;
+}
+
+.header .search-box {
+    position: relative;
+    width: 510px;
+    height: 35px;
+}
+
+.header .search-box .icon {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+}
+
+.header .search-box input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #001f7b;
+    border-radius: 38px;
+    padding: 0 0 0 25px;
+    font-weight: 520;
+    font-size: 13px;
+    font-family: "NanumGothic";
+}
+
+.login {
+    display: flex;
+    align-items: center;
+}
+
+.login #login {
+    border-right: 1px solid black;
+    padding: 0 12px 0 8px;
+}
+
+.login #join {
+    padding: 0 0 0 12px;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 17px;
+    margin: 7px 0px;
+}
+
+.nav>li {
+    position: relative;
+    line-height: 50px;
+}
+
+.nav>li>a:hover {
+    color: #0035d3;
+}
+
+.category,
+.submenu {
+    width: 208px;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 3px 3px 13px 1px rgba(75, 75, 75, 0.15);
+}
+
+.submenu {
+    top: 0px;
+    left: 208px;
+    z-index: 3;
+}
+
+.category>li,
+.submenu>li {
+    line-height: 30px;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.category a {
+    display: block;
+}
+
+.nav>li:hover .category {
+    display: block;
+}
+
+.category>li:hover .submenu {
+    display: block;
+}
+
+.category li:hover {
+    background: #e6e6e6;
+}
+
+.category-container {
+    display: flex;
+    align-items: baseline;
+}
+
+.category-vector div {
+    width: 20px;
+    border-bottom: 2px solid;
+    padding-bottom: 4px;
+    margin-right: 10px;
+}
+
+.txt-area {
+    margin: 0 0 0 31px;
+}
+
+.txt-area #name {
+    font-weight: 800;
+    font-size: 33px;
+    margin: 30px 0 0 0;
+}
+
+main {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.type-container button{
+    border-radius: 17px;
+}
+
+.type-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 210px;
+    margin-top: -20px;
+    list-style-type: none;
+}
+
+.type-container li{
+    margin-right: 25px;
+}
+
+.type-container label,
+.type-container input{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 130px;
+    height: 60px;
+    color: #969696;
+    font-weight: 700;
+    font-size: 28px;
+    background: #e9e9e9;
+    border-radius: 17px;
+}
+
+.type-container input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+}
+
+.type-container input[type="radio"]:checked+label,
+.Checked+label {
+    color: white;
+    background: #0035D3;
+}
+
+.type-container label {
+    padding: 25px;
+    cursor: pointer;
+    z-index: 90;
+}
+
+.type-container label:hover {
+    background: #DDD;
+}
+
+.info-container div:not(.btn-container) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px;
+}
+
+.title input, 
+.name input, 
+.hashtag input{
+    box-sizing: border-box;
+    width: 859px;
+    height: 44px;
+    background: #FFFFFF;
+    border: 0.5px solid #001F7B;
+}
+
+.category-box select,
+.transaction-area select {
+    width: 196px;
+    height: 48px;
+    filter: drop-shadow(-2px 4px 15px rgba(0, 7, 69, 0.15));
+}
+
+.info-container .category-box {
+    position: relative;
+    padding-left: 160px;
+}
+
+.category-box input[type=text] {
+    box-sizing: border-box;
+    width: 600px;
+    height: 45.29px;
+    background: #FFFFFF;
+    border: 0.5px solid #001F7B;
+}
+
+.checkbox {
+    position: absolute;
+    width: 170px;
+    height: 40px;
+    top: -40px;
+    right: -60px;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    display: none;
+    top: -1.5px;
+}
+
+input[type=checkbox]+label {
+    cursor: pointer;
+    padding-left: 23px;
+    color: #B5B5B5;
+    background-repeat: no-repeat;
+    background-image: url('../image/check-off.png');
+}
+
+input[type=checkbox]:checked+label {
+    background-image: url('../image/check-on.png');
+    color: #0035d3;
+    font-weight: 400;
+}
+
+input[type=checkbox]:disabled+label {
+    background-image: url('../image/check-off.png');
+    color: #B5B5B5;
+    font-weight: 400;
+}
+
+.info-container .description input{
+    box-sizing: border-box;
+    width: 859px;
+    height: 537px;
+    background: #FFFFFF;
+    border: 0.5px solid #001F7B;
+}
+
+.image img{
+    padding-right: 600px;
+}
+
+.image input{
+    display: none;
+}
+
+.transaction-way{
+    padding-right: 190px;
+}
+.transaction-way div{
+    width: 130px;
+    height: 24px;
+}
+
+.transaction-area{
+    padding-right: 660px;
+}
+
+.info-container .btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 90px 0;
+}
+
+.btn-container button{
+    display: block;
+    align-items: center;
+    box-sizing: border-box;
+    width: 130px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    font-size: 28px;
+    background: #0035D3;
+    border-radius: 17px;
+}
+
+.btn-container button:hover {
+    background: #001f7b;
+}
