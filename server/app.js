@@ -22,11 +22,11 @@ const server=app.listen(3000,()=>{
     console.log('Server started. port 3000'); 
 });
 
-//var loginRouter=require('./routes/login');
+var loginRouter=require('./routes/login');
 var joinRouter=require('./routes/join');
 var showAllDataRouter=require('./routes/show-all-data');
 
-//app.use('/login',loginRouter);
+app.use('/login',loginRouter);
 app.use('/join',joinRouter); 
 app.use('/show-all-data',showAllDataRouter); 
 
