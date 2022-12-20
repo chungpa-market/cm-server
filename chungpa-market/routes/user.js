@@ -39,6 +39,7 @@ router.post('/login',function(req,res,next){
 });
 
 
+
 //로그아웃 
 router.get('/logout',function(req,res){
     req.session.destroy(function(err){
@@ -47,9 +48,8 @@ router.get('/logout',function(req,res){
 });
 
 
-//회원가입 - 아직 구현 덜했음. 
+//회원가입 
 router.get('/join', (req, res) => {
-    //res.sendFile(path.join(__dirname, '../html/login.html'));
     res.render('../html/registration.html'); 
 });
 
@@ -59,21 +59,46 @@ router.post('/join',function(req,res,next){
     var userPwdChk=req.body['check-password'];
     var username=req.body['username'];
     var phone=req.body['phone-number']; 
-    var email=req.body['email']; 
+    var email=req.body['email-first']+"@"+req.body['email-second']; 
 
     console.log(req.body); 
-    /*
-    console.log(userid); 
-    console.log(userPwd); 
-    console.log(userPwdChk); 
-    console.log(username); 
-    console.log(phone);
-    //console.log(email); */
-    if(userPwd==userPwdChk){
-        res.send('success'); 
+    
+    if (username && userPwd && userPwdChk) {
+        console.log(email); 
+        
+        db.query('SELECT * FROM t_user WHERE name = ?', [username], function(error, results, fields) { // DB에 같은 이름의 회원아이디가 있는지 확인
+            if (error) throw error;
+            if (results.length==0 && userPwd == userPwdChk) {     // DB에 같은 이름의 회원아이디가 없고, 비밀번호가 올바르게 입력된 경우 
+                db.query('INSERT INTO t_user (login_id,password,name,nickname,email,phone) VALUES(?,?,?,?,?,?)', [userid, userPwd,username,userid,email,phone], function (error, data) {
+                    if (error) throw error2;
+                    res.send(`<script type="text/javascript">alert("회원가입이 완료되었습니다!");
+                    document.location.href="/";</script>`);
+                });
+            } else if (userPwd != userPwdChk) {                     // 비밀번호가 올바르게 입력되지 않은 경우
+                res.send(`<script type="text/javascript">alert("입력된 비밀번호가 서로 다릅니다."); 
+                document.location.href="/user/join";</script>`);    
+            }
+            else {                                                  // DB에 같은 이름의 회원아이디가 있는 경우
+                res.send(`<script type="text/javascript">alert("이미 존재하는 아이디 입니다."); 
+                document.location.href="/user/join";</script>`);    
+            }            
+        });
+
+    } else {        // 입력되지 않은 정보가 있는 경우
+        res.send(`<script type="text/javascript">alert("입력되지 않은 정보가 있습니다."); 
+        document.location.href="/user/join";</script>`);
     }
 
 });
+
+
+//마이페이지 - 미구현 
+router.get('/mypage', (req, res) => {
+    res.render('../html/my-page.html'); 
+});
+router.post('/mypage',function(req,res,next){
+
+}); 
 
 module.exports = router;
 

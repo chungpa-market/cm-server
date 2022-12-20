@@ -36,22 +36,10 @@ app.set('view engine','ejs');
 app.engine('html',require('ejs').renderFile); 
 
 //body parser 설정 (html에서 post방식으로 데이터 전달받기 위함)
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.json()); 
+app.use(express.urlencoded({extended:false}));
 
-/*
-//라우팅 
-var loginRouter=require('./routes/login');
-var registerRouter=require('./routes/join.js'); 
-app.use('/login',loginRouter); 
-//로그아웃 
-app.get('/logout',function(req,res){
-    req.session.destroy(function(err){
-        res.redirect('/'); 
-    });
-});
-app.use('/join',registerRouter); 
-*/
+
 var userRouter=require('./routes/user.js');
 app.use('/user',userRouter); 
 
