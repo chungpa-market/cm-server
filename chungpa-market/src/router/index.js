@@ -1,24 +1,24 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import AboutView from '../views/AboutView.vue';
+import MainView from '../views/MainView';
 import LoginView from '../views/LoginView';
+import RegistrationView from '../views/RegistrationView';
+import WriteView from '../views/WriteView';
 import SellView from '../views/SellView';
+import ShareView from '../views/ShareView';
+import BuyView from '../views/BuyView';
 import ProductDetail from '../views/ProductDetail';
 import WishList from '../views/WishList';
+import TransactionHistory from '../views/TransactionHistory';
+import MyPage from '../views/MyPage';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutView,
+    name: 'main',
+    component: MainView,
   },
   {
     path: '/sell',
@@ -26,9 +26,29 @@ const routes = [
     component: SellView,
   },
   {
+    path: '/buy',
+    name: 'buy',
+    component: BuyView,
+  },
+  {
+    path: '/share',
+    name: 'share',
+    component: ShareView,
+  },
+  {
     path: '/login',
     name: 'login',
     component: LoginView,
+  },
+  {
+    path: '/registration',
+    name: '/registration',
+    component: RegistrationView,
+  },
+  {
+    path: '/write',
+    name: '/write',
+    component: WriteView,
   },
   {
     path: '/detail',
@@ -39,6 +59,16 @@ const routes = [
     path: '/wish',
     name: 'WishList',
     component: WishList,
+  },
+  {
+    path: '/mypage',
+    name: 'MyPage',
+    component: MyPage,
+  },
+  {
+    path: '/transactionhistory',
+    name: 'TransactionHistory',
+    component: TransactionHistory,
   },
 ];
 

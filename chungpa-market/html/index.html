@@ -20,17 +20,17 @@
                   />청파마켓</a
                 >
               </h1>
-              <div class="search-box">
-                <input type="text" />
-                <a href="" class="icon">
+              <form action="search" method="get" class="search-box">
+                <input type="text" class="search-bar" name="query" placeholder="검색어를 입력하세요."/>
+                <input type="submit" class="search-button" value="Search">
                   <img
                     src="../src/assets/res/검색 아이콘.png"
                     width="20"
                     height="20"
                     alt="검색 버튼 아이콘"
                   />
-                </a>
-              </div>
+              </input>
+              </form>
               <div class="login">
                 <a href="">
                   <img
@@ -48,8 +48,16 @@
                     alt="내 정보 아이콘"
                   />
                 </a>
-                <a href="" id="login">로그인</a>
-                <a href="" id="join">회원가입</a>
+                <a href="login" id="login" onclick="movepagelog()">로그인</a>
+                <a href="join" id="join" onclick="movepagejoin()">회원가입</a>
+                <script type="text/javascript">
+                  function movepagelog() {
+                    location.href = "/login";
+                  }
+                  function movepagejoin() {
+                    location.href = "/join";
+                  }
+                </script>
               </div>
             </header>
             <div>
