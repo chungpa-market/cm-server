@@ -68,7 +68,7 @@ router.get('/products/buy/:id', (req, res) => {
     }
   );
 });
-router.get('/products/give/', (req, res) => {
+router.get('/products/share/', (req, res) => {
   maria.query('SELECT * from t_post WHERE tags=3', (err, rows, fields) => {
     try {
       res.send(rows);
@@ -80,7 +80,7 @@ router.get('/products/give/', (req, res) => {
     }
   });
 });
-router.get('/products/give/:id', (req, res) => {
+router.get('/products/share/:id', (req, res) => {
   const { id } = req.params;
   maria.query(
     'SELECT * from t_post WHERE tags=3 AND id=' + id,
