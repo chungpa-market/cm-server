@@ -55,15 +55,13 @@ const sql = require('../sql.js');
 // });
 
 // 도서정보 팔/살/나 구분 조회
-// 팔아요 물건리스트
-
-// // err 떠서 잠시 주석처리
+// 제품리스트(게시글)
 router.get('/api/products/:alias/', (req, res) => {
   conn.query(sql[req.params.alias].query, (err, rows, fields) => {
     try {
       res.send(rows);
     } catch (err) {
-      console.log('errrrr : ' + err);
+      console.log('err : ' + err);
       res.status(500).send({
         error: err,
       });
@@ -71,40 +69,14 @@ router.get('/api/products/:alias/', (req, res) => {
   });
 });
 
-// router.get('/api/products/:alias', async (req, res) => {
-//   try {
-//     res.send(await req.db(req.params.alias));
-//   } catch (err) {
-//     res.status(500).send({
-//       error: err,
-//     });
-//   }
-// });
-
-// 팔아요->물건선택
+// 제품 상세
 router.get('/api/products/sell/:id', (req, res) => {
   const { id } = req.params;
-  conn.query(
-    'SELECT * from t_post WHERE tags=1 AND id=' + id,
-    (err, rows, fields) => {
-      try {
-        res.send(rows);
-      } catch (err) {
-        console.log('err : ' + err);
-        res.status(500).send({
-          error: err,
-        });
-      }
-    }
-  );
-});
-
-router.get('/api/products/buy/', (req, res) => {
-  conn.query(sql['buy'].query, (err, rows, fields) => {
+  conn.query(sql['productDetail'].query + id, (err, rows, fields) => {
     try {
       res.send(rows);
     } catch (err) {
-      console.log('errrrr : ' + err);
+      console.log('err : ' + err);
       res.status(500).send({
         error: err,
       });
@@ -114,52 +86,7 @@ router.get('/api/products/buy/', (req, res) => {
 
 router.get('/api/products/buy/:id', (req, res) => {
   const { id } = req.params;
-  conn.query(
-    'SELECT * from t_post WHERE tags=2 AND id=' + id,
-    (err, rows, fields) => {
-      try {
-        res.send(rows);
-      } catch (err) {
-        console.log('err : ' + err);
-        res.status(500).send({
-          error: err,
-        });
-      }
-    }
-  );
-});
-router.get('/api/products/share/', (req, res) => {
-  conn.query('SELECT * from t_post WHERE tags=3', (err, rows, fields) => {
-    try {
-      res.send(rows);
-    } catch (err) {
-      console.log('err : ' + err);
-      res.status(500).send({
-        error: err,
-      });
-    }
-  });
-});
-router.get('/api/products/share/:id', (req, res) => {
-  const { id } = req.params;
-  conn.query(
-    'SELECT * from t_post WHERE tags=3 AND id=' + id,
-    (err, rows, fields) => {
-      try {
-        res.send(rows);
-      } catch (err) {
-        console.log('err : ' + err);
-        res.status(500).send({
-          error: err,
-        });
-      }
-    }
-  );
-});
-// 메인->물건선택
-router.get('/api/products/:id', (req, res) => {
-  const { id } = req.params;
-  conn.query('SELECT * from t_post WHERE id=' + id, (err, rows, fields) => {
+  conn.query(sql['productDetail'].query + id, (err, rows, fields) => {
     try {
       res.send(rows);
     } catch (err) {
@@ -171,6 +98,18 @@ router.get('/api/products/:id', (req, res) => {
   });
 });
 
-// 임시로 추가한 글 등록
+router.get('/api/products/share/:id', (req, res) => {
+  const { id } = req.params;
+  conn.query(sql['productDetail'].query + id, (err, rows, fields) => {
+    try {
+      res.send(rows);
+    } catch (err) {
+      console.log('err : ' + err);
+      res.status(500).send({
+        error: err,
+      });
+    }
+  });
+});
 
 module.exports = router;
