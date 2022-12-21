@@ -1,42 +1,16 @@
-module.exports={
-    productList:{
-        query:`SELECT t1.id,t1.product_name, t1.product_price , t3.major,t3.required,t3.GEclass 
-        FROM t_product t1, t_image t2, t_category t3
-        WHERE t1.id=t2.product_id AND t2.type=1 AND t1.category_id=t3.id `
+module.exports = {
+    sell: {
+      query: `SELECT * from t_post WHERE tags=1`,
     },
-
-    productDetail:{
-        query:`SELECT t1.id,t1.product_name, t1.product_price , t3.major,t3.required,t3.GEclass 
-        FROM t_product t1, t_image t2, t_category t3
-        WHERE t1.id=? AND t1.id=t2.product_id AND t2.type=3 AND t1.major=t3.id `
+    buy: {
+      query: `SELECT * from t_post WHERE tags=2`,
     },
-    productMainImages:{
-        query:`SELECT * FROM t_image WHERE product_id=? AND TYPE=2 `
-    },
-    productInsert:{
-        query:`INSERT INTO t_product (product_name,product_price,product_describe,tags,trade_method,image_path,
-            seller_id,category_id)
-            VALUES (?,?,?,?,?,?,?,?)`
-    },
-    productImageInsert:{
-        query:`insert into t_image (product_id,type,path)
-        values (?,?,?)`
-    },
-    sellerList:{
-        query:'select * from t_seller'
-    },
-    
-    searchProduct:{
-        query:`select * from t_post where product_name '?%';
-        select * from t_post where product_name '%?%';`
-    },
-    productInfoinPal:{
-        query:`select * from t_post where tags=1`
-    },
-    productInfoinSal:{
-        query:`select * from t_post where tags=2`
-    },
-    productInfoinNa:{
-        query:`select * from t_post where tags=3`
-    },
-}
+  };
+  
+  // 게시글 미리보기에서 필요한 정보
+  `SELECT id, image_path, title, product_price, content FROM t_post`;
+  // 제품 상세페이지 쿼리문
+  `SELECT id, image_path, title, product_price, created_time, product_name, method, content, name FROM t_post t1, t_user t2 WHERE t1.user_id = t2.login_id`;
+  // 제품 등록 쿼리
+  `INSERT INTO t_post (id, user_id, tags, title, product_name, category_id, product_price, content, image_path, method,created_time,modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
+  //
