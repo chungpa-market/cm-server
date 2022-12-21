@@ -1,6 +1,9 @@
 module.exports = {
-  products: {
-    query: `SELECT id, image_path, title, product_price, content FROM t_post`,
+  sell: {
+    query: `SELECT * from t_post WHERE tags=1`,
+  },
+  buy: {
+    query: `SELECT * from t_post WHERE tags=2`,
   },
 };
 
